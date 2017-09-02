@@ -8,9 +8,11 @@ import {ENVIRONMENT} from "../../environments/environment.default"
 })
 export class HomePage {
 
+  public t;
+
   constructor(public navCtrl: NavController) {
     console.log(ENVIRONMENT.environment)
-    
+    this.t = ENVIRONMENT.environment;
   }
 
 }
