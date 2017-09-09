@@ -1,0 +1,64 @@
+<ion-content>
+  <ion-slides>
+    <ion-slide class=firstSlide>
+      <ion-row>
+        <ion-col>
+          <h3>Welcome to Thirty</h3>
+          <p>Business Edition</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <img src="assets/images/logo.png" />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <span>Swipe to Get Started</span>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide style="height:initial">
+      <div class="special" >
+        <!-- <form [formGroup]="profileForm" (keydown)="keyDownFunction($event)"> -->
+        <!-- <img src="{{user.profilePic || 'assets/images/profile.png'}}" *ngIf="user && network.online()" margin-bottom (click)="setProfilePic()">
+            <img src="{{user.profilePic || 'assets/images/profile.png'}}" *ngIf="user && !network.online()" margin-bottom style="opacity: 0.6"> -->
+        <ion-list no-margin no-padding>
+          <ion-item no-lines>
+            <ion-input type="text" placeholder="enter first name"></ion-input>
+          </ion-item>
+          <!-- <p *ngIf="profileForm.controls.firstName.hasError('required') && profileForm.controls.firstName.touched">{{ 'PLEASE_ENTER_FIRST_NAME' | translate }}</p>
+              <p *ngIf="!profileForm.controls.firstName.valid && !profileForm.controls.firstName.hasError('required') && profileForm.controls.firstName.touched">{{ 'PLEASE_ENTER_FIRST_NAME' | translate }}</p> -->
+          <ion-item no-lines>
+            <ion-input type="text" placeholder="enter last name"></ion-input>
+          </ion-item>
+          <!-- <p *ngIf="profileForm.controls.lastName.hasError('required') && profileForm.controls.lastName.touched">{{ 'PLEASE_ENTER_LAST_NAME' | translate }}</p>
+              <p *ngIf="!profileForm.controls.lastName.valid && !profileForm.controls.lastName.hasError('required') && profileForm.controls.lastName.touched">{{ 'PLEASE_ENTER_LAST_NAME' | translate }}</p> -->
+          <ion-item no-lines>
+            <ion-input type="email" placeholder="enter email"></ion-input>
+          </ion-item>
+          <!-- <p *ngIf="profileForm.controls.email.hasError('required') && profileForm.controls.email.touched">{{ 'PLEASE_ENTER_EMAIL' | translate }}</p>
+              <p *ngIf="!profileForm.controls.email.valid && !profileForm.controls.email.hasError('required') && profileForm.controls.email.touched">{{ 'PLEASE_ENTER_VALID_EMAIL' | translate }}</p> -->
+          <button ion-button icon-left color="robust" no-margin no-padding margin-top>
+                <ion-icon name="md-checkmark-circle"></ion-icon>Login
+              </button>
+        </ion-list>
+      </div>
+      <!-- </div> -->
+
+    </ion-slide>
+
+    <!-- <ion-slide>
+      <div class="text top">
+        <h3>Finally lets create your account</h3>
+      </div>
+      <div class="text middle">
+
+      </div>
+      <img id="animate_3" src="assets/images/features.png" />
+      <div class="text bottom">
+        <span>Swipe to Continue</span>
+      </div>
+    </ion-slide> -->
+  </ion-slides>
+</ion-content>
