@@ -9,19 +9,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+// import { HomePage } from '../pages/home/home';
 
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { ToastProvider } from '../providers/toast/toast';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { AlertProvider } from '../providers/alert/alert';
 
 // import {} from '../providers/AuthenticatorService'
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    // HomePage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    // HomePage
   ],
   providers: [
     AuthenticatorService,
@@ -42,6 +45,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     Loader,
     // User,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ToastProvider,
+    AuthenticationProvider,
+    AlertProvider,
   ]
 })
 export class AppModule {}

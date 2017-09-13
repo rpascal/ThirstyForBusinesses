@@ -1,12 +1,12 @@
 export const ENVIRONMENT = {
   environment : "default",
   firebaseConfig: {
-    apiKey: "AIzaSyAHMv3o3sj62eOnINMcGGMVpSAoq85hW4c",
-    authDomain: "social-5ad5b.firebaseapp.com",
-    databaseURL: "https://social-5ad5b.firebaseio.com",
-    projectId: "social-5ad5b",
-    storageBucket: "social-5ad5b.appspot.com",
-    messagingSenderId: "153122904996"
+    apiKey: "AIzaSyB5u57Qnw6aim6GKI6FhU-zeDbfibSxUqg",
+    authDomain: "thirsty-17d75.firebaseapp.com",
+    databaseURL: "https://thirsty-17d75.firebaseio.com",
+    projectId: "thirsty-17d75",
+    storageBucket: "thirsty-17d75.appspot.com",
+    messagingSenderId: "726129474696"
   },
   firebaseDatabasePaths : {
     users : "_users",

@@ -1,3 +1,5 @@
+import { Loader } from './../../providers/loader';
+import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { ModalController, Platform } from 'ionic-angular';
@@ -40,7 +42,9 @@ export class LoginPage {
     private formBuilder: FormBuilder,
     private alertCtrl: AlertController,
     private platform: Platform,
-    private authenticator: AuthenticatorService
+    private authenticator: AuthenticatorService,
+    public AuthenticationProvider: AuthenticationProvider,
+    public Loader: Loader
   ) {
   }
 
@@ -57,8 +61,8 @@ export class LoginPage {
 
   // Anonymous user login
   anonymousUser() {
-    this.ToastController.create({ message: "anonymous", duration: 2000,position:"top" }).present()
-    
+    this.ToastController.create({ message: "anonymous", duration: 2000, position: "top" }).present()
+
     // this.authenticator.anonymousUser()
     //   .then((user) => {
     //     this.doSomethingAfterUserLogin(user);
@@ -74,8 +78,8 @@ export class LoginPage {
   }
 
   signInWithOAuth(provider: string) {
-    this.ToastController.create({ message: provider, duration: 2000,position:"top" }).present()
-    
+    this.ToastController.create({ message: provider, duration: 2000, position: "top" }).present()
+
     // this.platform.is('cordova') ? this.authenticator.signInWithOAuth(provider) : this.authenticator.signInWithOAuthBrowserMode(provider)
     //   .then((user) => {
     //     this.doSomethingAfterUserLogin(user);
@@ -93,7 +97,20 @@ export class LoginPage {
   // Perform login using user and password
   login() {
 
-    this.ToastController.create({ message: "dummy login", duration: 2000,position:"top" }).present()
+    let email = this.loginForm.controls.email.value;
+    let password = this.loginForm.controls.password.value;
+    this.Loader.show("Logging In")
+    this.AuthenticationProvider.loginWithEmail(email, password).then(res => {
+      this.navCtrl.setRoot("HomePage")
+      this.Loader.hide();
+    }).catch(err => {
+      this.alertCtrl.create({
+        message: err,
+
+      }).present();
+      this.Loader.hide();
+    });
+    //    this.ToastController.create({ message: "dummy login", duration: 2000,position:"top" }).present()
 
     // let email = this.userFormBuilder.controls.email.value;
     // let password = this.userFormBuilder.controls.password.value;

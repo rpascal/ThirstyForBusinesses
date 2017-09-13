@@ -1,3 +1,4 @@
+import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastOptions } from 'ionic-angular';
 import { Validators, FormBuilder, ValidatorFn, FormGroup } from '@angular/forms';
@@ -43,7 +44,8 @@ export class SignupPage {
     public afAuth: AngularFireAuth,
     private formBuilder: FormBuilder,
     private loader: Loader,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    public AuthenticationProvider: AuthenticationProvider
   ) { }
 
   ionViewWillLoad() {
@@ -62,53 +64,25 @@ export class SignupPage {
     return pass === confirmPass ? null : { notSame: true }
   }
 
-  // Create user using form builder controls
   createUser() {
-    var options: ToastOptions = {
-      message: "create user",
-      duration: 3000
-    }
-    this.ToastController.create(options).present()
 
-    // let fullName = this.user.controls.fullName.value;
-    // let email = this.user.controls.email.value;
-    // let password = this.user.controls.password.value;
-    // let passwordConfirmation = this.user.controls.passwordConfirmation.value;
-    // this.loader.show("Creating user...");
-    // new Promise((resolve, reject) => {
-    //   if (passwordConfirmation != password) {
-    //     reject(new Error('Password does not match'));
-    //   } else {
-    //     resolve();
-    //   }
-    // })
-    //   .then(() => {
-    //     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    //   })
-    //   .then((user: any) => {
-    //     this.events.publish('user:create', user);
-    //     // Login if successfuly creates a user
-    //     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
-    //   })
-    //   .then((user: any) => {
-    //     // CUSTOMISE: Here you can add more fields to your user registration
-    //     // those fields will be stored on /users/{uid}/
-    //     let userRef = this.db.object('/users/' + user.uid);
-    //     userRef.set({
-    //       provider: user.providerId,
-    //       email: email,
-    //       fullName: fullName
-    //     });
-    //     this.loader.hide();
-    //   })
-    //   .catch((e) => {
-    //     this.loader.hide();
-    //     this.alertCtrl.create({
-    //       title: 'Error',
-    //       message: `Failed to login. ${e.message}`,
-    //       buttons: [{ text: 'Ok' }]
-    //     }).present();
-    //   });
+    let business = this.signUpForm.controls.business.value;
+    let email = this.signUpForm.controls.email.value;
+    let password = this.signUpForm.controls.password.value;
+
+    this.loader.show("Creating user...");
+    this.AuthenticationProvider.createUserWithEmailAndPassword(business, email, password).then(res => {
+      this.loader.hide()
+      this.navCtrl.setRoot("HomePage")
+    }).catch(err => {
+      this.alertCtrl.create({
+        message: err,
+
+      }).present();
+      this.loader.hide();
+
+    });
+
   }
 
 }

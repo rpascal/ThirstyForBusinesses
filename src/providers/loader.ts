@@ -2,19 +2,11 @@ import { Injectable } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the Loader provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
 export class Loader {
 
   loader: any;
-  constructor(private loading: LoadingController) {
-    console.log('Hello Loader Provider');
-  }
+  constructor(private loading: LoadingController) { }
 
   show(message) {
     this.loader = this.loading.create({ content: message });
@@ -24,5 +16,15 @@ export class Loader {
   hide() {
     this.loader.dismiss();
   }
+
+  public showSpinner(): void {
+    if (!this.loader) {
+      this.loader = this.loading.create({
+        spinner : 'circles'
+      }).present();
+      // this.loader.present();
+    }
+  }
+
 
 }
