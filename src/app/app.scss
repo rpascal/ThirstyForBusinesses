@@ -12,11 +12,21 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-.scroll-content {
+.scroll-content, ion-menu, .menu-inner {
   background-image: url('../assets/images/background.png');
   background-position: initial initial;
   background-repeat: initial initial;
 }
+
+// body {
+//   background-image: url('../assets/images/background.png');
+//   background-position: initial initial;
+//   background-repeat: initial initial;
+// }
+.menu-inner, ion-menu{
+  background-color: transparent !important;
+}
+
 
 .hide {
   display: none;

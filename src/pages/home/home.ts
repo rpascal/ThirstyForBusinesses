@@ -16,7 +16,7 @@ export class HomePage {
   @ViewChild(Content) content: Content;
   public loggedIn: boolean = false;
 
-  user: any;
+  // user: any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -33,24 +33,28 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.AuthenticationProvider.getUser().then(user => {
-      this.user = user;
-    })
+    // this.AuthenticationProvider.getUser().then(user => {
+    //   this.user = user;
+    // })
 
   }
 
-
-  logout() {
-    this.alert.showConfirm("Confirm Logout", "Are you sure?", "Cancel", "Logout").then(confirm => {
-      if (confirm) {
-        // this.Loader.showSpinner();
-        this.AuthenticationProvider.logout().then(() => {
-          // this.Loader.hide();
-          this.navCtrl.setRoot('LoginPage');
-        });
-      }
-    });
-
+  createLocation() {
+    this.navCtrl.push("CreateLocationPage")
   }
+
+
+  // logout() {
+  //   this.alert.showConfirm("Confirm Logout", "Are you sure?", "Cancel", "Logout").then(confirm => {
+  //     if (confirm) {
+  //       // this.Loader.showSpinner();
+  //       this.AuthenticationProvider.logout().then(() => {
+  //         // this.Loader.hide();
+  //         this.navCtrl.setRoot('LoginPage');
+  //       });
+  //     }
+  //   });
+
+  // }
 
 }

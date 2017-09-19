@@ -18,6 +18,11 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ToastProvider } from '../providers/toast/toast';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { AlertProvider } from '../providers/alert/alert';
+import { BusinessLocationProvider } from '../providers/business-location/business-location';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { GoogleLocationsProvider } from '../providers/google-locations/google-locations';
+import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
+import { Network } from '@ionic-native/network';
 
 // import {} from '../providers/AuthenticatorService'
 
@@ -28,7 +33,14 @@ import { AlertProvider } from '../providers/alert/alert';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      menuType: 'push',
+      // platforms: {
+      //   ios: {
+      //     menuType: 'overlay',
+      //   }
+      // }
+    }),
     AngularFireModule.initializeApp(ENVIRONMENT.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
@@ -43,11 +55,16 @@ import { AlertProvider } from '../providers/alert/alert';
     StatusBar,
     SplashScreen,
     Loader,
-    // User,
+    // User,   
+     Network,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ToastProvider,
     AuthenticationProvider,
     AlertProvider,
+    BusinessLocationProvider,
+    FirebaseProvider,
+    GoogleLocationsProvider,
+    ConnectivityServiceProvider,
   ]
 })
 export class AppModule {}

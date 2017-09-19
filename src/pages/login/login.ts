@@ -2,7 +2,7 @@ import { Loader } from './../../providers/loader';
 import { AuthenticationProvider } from './../../providers/authentication/authentication';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { ModalController, Platform } from 'ionic-angular';
+import { ModalController, Platform, MenuController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, ValidatorFn } from '@angular/forms';
 import { AuthenticatorService } from "../../providers/authenticator";
 // import { RegistrationPage } from '../registration/registration';
@@ -36,6 +36,7 @@ export class LoginPage {
 
   constructor(
     private events: Events,
+    private menuCtrl: MenuController,
     public navCtrl: NavController,
     public ToastController: ToastController,
     public modalController: ModalController,
@@ -46,6 +47,12 @@ export class LoginPage {
     public AuthenticationProvider: AuthenticationProvider,
     public Loader: Loader
   ) {
+
+    this.menuCtrl.enable(false);
+
+  }
+  ionViewDidLeave() {
+    this.menuCtrl.enable(true)
   }
 
   ionViewWillLoad() {
@@ -54,6 +61,8 @@ export class LoginPage {
       password: ['', this.passwordValidator]
     });
   }
+
+
 
   doSomethingAfterUserLogin(user) {
     console.info('Do something after login :)');

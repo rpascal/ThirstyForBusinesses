@@ -19,20 +19,20 @@ export class AuthenticationProvider {
     public db: AngularFireDatabase) {
   }
 
-  public getUser() {
-    return new Promise((resolve, reject) => {
-      this.angularfireAuth.authState.take(1).subscribe(user => {
-        if (user) {
-          this.subscriptions.push(this.db.object('/usersThirsty/' + user.uid).subscribe(data => {
-            resolve(data)
-          }));
-        }
-        else
-          resolve(null)
-      })
-    });
+  // public getUser() {
+  //   return new Promise((resolve, reject) => {
+  //     this.angularfireAuth.authState.take(1).subscribe(user => {
+  //       if (user) {
+  //         this.subscriptions.push(this.db.object('/usersThirsty/' + user.uid).subscribe(data => {
+  //           resolve(data)
+  //         }));
+  //       }
+  //       else
+  //         resolve(null)
+  //     })
+  //   });
 
-  }
+  // }
 
   public redirectIfNotLoggedIn(navCtrl: NavController): Promise<boolean> {
     return new Promise((resolve, reject) => {
