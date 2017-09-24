@@ -1,0 +1,111 @@
+<!--
+  Generated template for the SelectWeeklyHoursPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+  <ion-toolbar>
+    <ion-title>
+      Weekly Hours
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" >Close</span>
+        <!-- <ion-icon name="md-close" ></ion-icon> -->
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+<day-hours [day]='"Monday"' [dailyHours]="weeklyHours.monday"></day-hours>
+
+<day-hours [day]='"Tuesday"' [dailyHours]="weeklyHours.tuesday"></day-hours>
+
+
+  <!-- <ion-list-header>
+    Monday
+  </ion-list-header>
+  <ion-item>
+    <ion-label>Start</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="weeklyHours.monday.open"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>End</ion-label>
+    <ion-datetime #mondayEnd (ionChange)="onAccept($event)" displayFormat="h:mm A" [min]='min' pickerFormat="h mm A" [(ngModel)]="weeklyHours.monday.close"></ion-datetime>
+  </ion-item> -->
+
+  <!-- <ion-list-header>
+    Tuesady
+  </ion-list-header>
+  <ion-item>
+    <ion-label>Start</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="weeklyHours.tuesday.open"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>End</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="weeklyHours.tuesday.close"></ion-datetime>
+  </ion-item>
+
+
+  <ion-list-header>
+    Wenesday
+  </ion-list-header>
+  <ion-item>
+    <ion-label>Start</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="temp"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>End</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="weeklyHours.monday.close"></ion-datetime>
+  </ion-item> -->
+
+
+  <!-- <ion-range (ionChange)="watchSlider()" dualKnobs="true" min="0" max="24" [(ngModel)]="rangeObject" color="secondary">
+    <ion-badge range-left>{{rangeObject.lower}}</ion-badge>
+    <ion-badge range-right>{{rangeObject.upper}}</ion-badge>
+  </ion-range>
+
+
+  <ion-item>
+    <ion-badge color="primary">{{this.timeMin2}}</ion-badge>
+  </ion-item>
+  <ion-item>
+    <ion-badge color="primary" item-right>{{this.timeMax2}}</ion-badge>
+  </ion-item>
+
+  <ion-range dualKnobs="true"  [min]=timeMin [max]=timeMax step="3" snaps="true" [(ngModel)]="time" (ionChange)="setBadge(time)"></ion-range>
+
+
+
+
+
+
+  <ion-badge item-right>{{customSteps}}</ion-badge>
+
+  <ion-range dualKnobs="true" [(ngModel)]="dualValue2" min="21" max="72" step="3" snaps="true"></ion-range>
+
+  <!-- <ion-range dualKnobs="true"   min="27" max="87" step="1" snaps="true"></ion-range> -->
+  <!-- 
+
+
+
+      <ion-range 
+          min="0" 
+          max="3" 
+          [(ngModel)]="slider" 
+          (ionChange)="watchSlider()" 
+          snaps="true">
+      </ion-range> --> 
+
+
+  <button ion-button block full color="coral" (click)="submit()">submit!</button>
+
+
+</ion-content>

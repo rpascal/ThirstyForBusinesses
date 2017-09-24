@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../components/components.module';
 import { User } from './../providers/user';
 import { Loader } from './../providers/loader';
 import { ENVIRONMENT } from './../environments/environment.default';
@@ -26,6 +27,8 @@ import { Network } from '@ionic-native/network';
 
 // import {} from '../providers/AuthenticatorService'
 
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,6 +44,7 @@ import { Network } from '@ionic-native/network';
       //   }
       // }
     }),
+    // ComponentsModule,
     AngularFireModule.initializeApp(ENVIRONMENT.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule

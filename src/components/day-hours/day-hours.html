@@ -1,0 +1,56 @@
+<ion-list>
+  <ion-list-header>
+    {{day}}
+  </ion-list-header>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label>Closed</ion-label>
+        <ion-toggle [(ngModel)]="dailyHours.closed"></ion-toggle>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>All Day</ion-label>
+        <ion-toggle [(ngModel)]="dailyHours.allDay"></ion-toggle>
+      </ion-item>
+    </ion-col>
+
+  </ion-row>
+  <ion-row>
+    <ion-item>
+      <button ion-button block full color="coral" (click)="addHours()">Add Hour Section</button>
+    </ion-item>
+  </ion-row>
+  <ion-row *ngFor="let item of dailyHours.hours; let i = index;">
+
+
+    <!-- <ion-row> -->
+    <ion-col>
+      <ion-item>
+        <ion-label>Start</ion-label>
+        <ion-datetime #open (ionChange)="openChange($event, i)" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="item.open"></ion-datetime>
+
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-label>End</ion-label>
+        <ion-datetime #close (ionChange)="closeChange($event, i)" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="item.close"></ion-datetime>
+
+      </ion-item>
+    </ion-col>
+    <!-- </ion-row> -->
+
+
+  </ion-row>
+
+  <!-- <ion-item>
+    <ion-label>Start</ion-label>
+    <ion-datetime #open (ionChange)="openChange($event)" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeFrame.open"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>End</ion-label>
+    <ion-datetime #close (ionChange)="closeChange($event)" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeFrame.close"></ion-datetime>
+  </ion-item> -->
+</ion-list>

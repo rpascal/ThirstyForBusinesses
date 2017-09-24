@@ -1,3 +1,5 @@
+import { weeklyHours, timeRange, IweeklyHours } from './../../models/location';
+import { googleLocationsDetails } from './../../models/googleLocationDetails';
 import { Subject } from 'rxjs/Subject';
 import { Business } from './../../models/business';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
@@ -19,22 +21,18 @@ export class CreateLocationPage {
   private business: Business;
   private alive: boolean = true;
 
+  private weeklyHours: weeklyHours;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public businessLocations: BusinessLocationProvider,
     public firebase: FirebaseProvider,
-    public modal : ModalController
+    public modal: ModalController
   ) {
     this.alive = true;
+    this.weeklyHours = new weeklyHours();
   }
 
-  presentProfileModal() {
-    let profileModal = this.modal.create("LocationPickerPage");
-    profileModal.present();
-    profileModal.onDidDismiss(data=>{
-      console.log(data)
-    })
-  }
 
   ionViewDidLoad() {
     this.firebase.getCurrentUser().then(connection => {
@@ -45,6 +43,27 @@ export class CreateLocationPage {
     })
   }
 
+
+  getWeeklyHours() {
+    // this.weeklyHours.monday = new timeRange();
+    // this.weeklyHours.monday.open = new Date();
+    // this.weeklyHours.monday.close = new Date();
+
+    let weeklyHours = this.modal.create("SelectWeeklyHoursPage", { weeklyHours: this.weeklyHours });
+    weeklyHours.present();
+    weeklyHours.onDidDismiss((data: IweeklyHours) => {
+      this.weeklyHours = data;
+      console.log(data)
+    })
+  }
+
+  getLocationModal() {
+    let getLocation = this.modal.create("LocationPickerPage");
+    getLocation.present();
+    getLocation.onDidDismiss((data: googleLocationsDetails) => {
+      console.log(data)
+    })
+  }
 
   createLocation() {
     if (this.business != null) {
