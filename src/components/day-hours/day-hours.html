@@ -24,8 +24,6 @@
   </ion-row>
   <ion-row *ngFor="let item of dailyHours.hours; let i = index;">
 
-
-    <!-- <ion-row> -->
     <ion-col>
       <ion-item>
         <ion-label>Start</ion-label>
@@ -40,17 +38,15 @@
 
       </ion-item>
     </ion-col>
-    <!-- </ion-row> -->
+    <ion-col>
+
+        <ion-item>
+            <button ion-button block full color="robust" (click)="removeItem(i)">Remove</button>
+          </ion-item>
+          
+    </ion-col>
 
 
   </ion-row>
 
-  <!-- <ion-item>
-    <ion-label>Start</ion-label>
-    <ion-datetime #open (ionChange)="openChange($event)" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeFrame.open"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label>End</ion-label>
-    <ion-datetime #close (ionChange)="closeChange($event)" displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="timeFrame.close"></ion-datetime>
-  </ion-item> -->
 </ion-list>

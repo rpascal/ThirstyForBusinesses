@@ -11,7 +11,5 @@ import { SelectWeeklyHoursPage } from './select-weekly-hours';
     DayHoursModule,
     IonicPageModule.forChild(SelectWeeklyHoursPage),
   ],
-  // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-  
 })
 export class SelectWeeklyHoursPageModule {}

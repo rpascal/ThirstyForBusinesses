@@ -8,6 +8,5 @@ import { IonicModule } from 'ionic-angular';
 	declarations: [DayHoursComponent],
 	imports: [CommonModule, IonicModule],
 	exports: [DayHoursComponent],
-	// schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DayHoursModule { }

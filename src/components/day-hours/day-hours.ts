@@ -29,26 +29,19 @@ export class DayHoursComponent {
 
 
   openChange($event, i) {
-    var beginningTime = moment(this.dailyHours.hours[i].open);
-    var endTime = moment(this.dailyHours.hours[i].close);
+    var beginningTime = moment(this.dailyHours.hours[i].open).utc(false);
+    var endTime = moment(this.dailyHours.hours[i].close).utc(false);
     if (this.greaterThan(beginningTime, endTime)) {
       this.opens.toArray()[i].setValue(this.dailyHours.hours[i].close)
     }
   }
 
   closeChange($event, i) {
-    var beginningTime = moment(this.dailyHours.hours[i].open);
-    var endTime = moment(this.dailyHours.hours[i].close);
+    var beginningTime = moment(this.dailyHours.hours[i].open).utc(false);
+    var endTime = moment(this.dailyHours.hours[i].close).utc(false);
     if (this.lessThan(endTime, beginningTime)) {
       this.closes.toArray()[i].setValue(this.dailyHours.hours[i].open)
     }
-
-
-    // var beginningTime = moment(this.open.value);
-    // var endTime = moment(this.close.value);
-    // if (this.lessThan(endTime, beginningTime)) {
-    //   this.close.setValue(this.dailyHours.open)
-    // }
   }
 
   minutesOfDay(m) {
@@ -61,6 +54,10 @@ export class DayHoursComponent {
 
   greaterThan(greater, less) {
     return this.minutesOfDay(greater) > this.minutesOfDay(less)
+  }
+
+  removeItem(i) {
+    this.dailyHours.hours.splice(i, 1);
   }
 
 
