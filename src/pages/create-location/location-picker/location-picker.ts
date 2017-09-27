@@ -30,9 +30,7 @@ export class LocationPickerPage {
   }
 
   dismiss() {
-    this.viewCtrl.dismiss({
-      blah: "blah"
-    });
+    this.viewCtrl.dismiss();
   }
 
   searchPlace() {

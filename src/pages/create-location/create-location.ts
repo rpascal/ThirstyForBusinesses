@@ -1,4 +1,4 @@
-import { weeklyHours, timeRange, IweeklyHours } from './../../models/location';
+import { weeklyHours, timeRange, IweeklyHours, location } from './../../models/location';
 import { googleLocationsDetails } from './../../models/googleLocationDetails';
 import { Subject } from 'rxjs/Subject';
 import { Business } from './../../models/business';
@@ -18,10 +18,19 @@ import 'rxjs/add/operator/takeWhile';
 })
 export class CreateLocationPage {
 
+
   private business: Business;
   private alive: boolean = true;
 
-  private weeklyHours: weeklyHours;
+  public newLocation: location;
+
+  private weeklyHours: weeklyHours = new weeklyHours();
+
+  public phone: any;
+
+  public locationDetails: string;
+  public hoursDetails: string;
+
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,7 +39,14 @@ export class CreateLocationPage {
     public modal: ModalController
   ) {
     this.alive = true;
-    this.weeklyHours = new weeklyHours();
+    this.newLocation = new location();
+
+
+
+
+
+
+
   }
 
 
@@ -45,14 +61,12 @@ export class CreateLocationPage {
 
 
   getWeeklyHours() {
-    // this.weeklyHours.monday = new timeRange();
-    // this.weeklyHours.monday.open = new Date();
-    // this.weeklyHours.monday.close = new Date();
-
     let weeklyHours = this.modal.create("SelectWeeklyHoursPage", { weeklyHours: this.weeklyHours });
     weeklyHours.present();
     weeklyHours.onDidDismiss((data: IweeklyHours) => {
-      this.weeklyHours = data;
+      this.hoursDetails = JSON.stringify(data);
+
+      this.newLocation.hours = data;
       console.log(data)
     })
   }
@@ -61,6 +75,12 @@ export class CreateLocationPage {
     let getLocation = this.modal.create("LocationPickerPage");
     getLocation.present();
     getLocation.onDidDismiss((data: googleLocationsDetails) => {
+      this.locationDetails = JSON.stringify(data);
+
+      this.newLocation.address = data.formatted_address;
+      this.newLocation.latitude = data.lat;
+      this.newLocation.longitude = data.lng;
+
       console.log(data)
     })
   }

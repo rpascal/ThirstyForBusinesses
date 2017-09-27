@@ -28,7 +28,6 @@ import { Network } from '@ionic-native/network';
 // import {} from '../providers/AuthenticatorService'
 
 
-
 @NgModule({
   declarations: [
     MyApp,

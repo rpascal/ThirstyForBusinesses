@@ -2,14 +2,20 @@ import moment from 'moment';
 
 
 
-export interface location {
+export class location {
     _uid: string;
     address: string;
     latitude: number;
     longitude: number;
-    hours: IweeklyHours;
+    hours: weeklyHours;
     phone: string;
     imgPath: string;
+  
+    constructor() {
+       this.hours = new weeklyHours();
+
+    }
+
 }
 
 export class timeRange {
@@ -25,7 +31,7 @@ export class timeRange {
 export class DailyHours {
     hours: Array<timeRange>;
     allDay: boolean = false;
-    closed: boolean = false;
+    closed: boolean = true;
 
     constructor() {
         this.hours = new Array<timeRange>();

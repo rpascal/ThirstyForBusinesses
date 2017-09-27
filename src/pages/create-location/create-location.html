@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Create Location Branch2</ion-title>
+    <ion-title>Create Location</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,6 +15,37 @@
 
 <ion-content padding>
   <button ion-button block full color="primary" (click)="getLocationModal()">Select Location!</button>
+
+  <ion-item text-wrap>
+
+    {{locationDetails}}
+  </ion-item>
+
   <button ion-button block full color="coral" (click)="getWeeklyHours()">Select Weekly Hours!</button>
-  
+
+  <ion-item text-wrap>
+
+    {{hoursDetails}}
+  </ion-item>
+
+
+  <ion-item text-wrap>
+    {{newLocation.address}}
+  </ion-item>
+  <ion-item text-wrap>
+    {{newLocation.latitude}}
+  </ion-item>
+  <ion-item text-wrap>
+    {{newLocation.longitude}}
+  </ion-item>
+  <ion-item text-wrap>
+    {{newLocation.hours}}
+  </ion-item>
+  <ion-item text-wrap>
+    {{newLocation.phone}}
+
+    {{phone}}
+  </ion-item>
+
+
 </ion-content>
