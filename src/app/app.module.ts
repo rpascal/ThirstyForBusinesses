@@ -32,7 +32,7 @@ import { Network } from '@ionic-native/network';
   declarations: [
     MyApp,
     // HomePage
-  ],
+  ], 
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,{
