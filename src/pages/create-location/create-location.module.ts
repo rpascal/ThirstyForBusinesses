@@ -1,4 +1,4 @@
-import { TextMaskModule } from 'angular2-text-mask';
+// import { TextMaskModule } from 'angular2-text-mask';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CreateLocationPage } from './create-location';
@@ -8,8 +8,7 @@ import { CreateLocationPage } from './create-location';
     CreateLocationPage,
   ],
   imports: [
-    IonicPageModule.forChild(CreateLocationPage),
-    TextMaskModule
+    IonicPageModule.forChild(CreateLocationPage)
   ],
   entryComponents:[
   ],
